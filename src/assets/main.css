@@ -1,1 +1,27 @@
 @import './base.css';
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+button{
+  background-color: blue;
+  border-radius: 0.4em;
+  color: white;
+  border: none;
+  transition: 0.4s ease;
+}
+
+button:hover{
+  background-color: white;
+  color: blue;
+  border: blue solid 1px;
+  cursor: pointer;
+}
+
+a{
+  color: blue;
+  text-decoration: none;
+}
