@@ -61,7 +61,7 @@
 
             <div class="box">
             
-                <button><RouterLink to="/">Create Account</RouterLink></button>
+                <button>Create Account</button>
             
             </div>
 
