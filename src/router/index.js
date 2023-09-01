@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Login from '../views/Login.vue'
+import NotFound from '../views/404View.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,9 +12,14 @@ const router = createRouter({
       component: HomeView
     },
     {
-     path: '/login/signup',
-     name: 'signup',
-     component: Login
+      path: '/login/:logorsign',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: "/:catchall(.*)*",
+      name: 'notfound',
+      component: NotFound
     }
   ]
 })

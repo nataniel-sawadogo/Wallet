@@ -1,5 +1,8 @@
 <script setup>
     import { RouterLink } from 'vue-router';
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter()
 
     let visible = false
     let type = "password"
@@ -14,6 +17,10 @@
             return type = "password"
         }
         console.log(type, visible);
+    }
+
+    const goToHome = () => {
+        router.push('/')
     }
 </script>
 
@@ -61,13 +68,13 @@
 
             <div class="box">
             
-                <button>Create Account</button>
+                <button @click="goToHome()">Create Account</button>
             
             </div>
 
             <div class="box">
             
-                <p>Already have an account? <span><a href="#">Sign In</a></span></p>
+                <p>Already have an account? <span><RouterLink to="/login/signin">Sign In</RouterLink></span></p>
             
             </div>
 
@@ -88,6 +95,10 @@
     p{
         color: rgb(101, 99, 99);
         padding-bottom: 0.3em;
+    }
+
+    a{
+        font-weight: 500;
     }
 
     .box{
@@ -132,7 +143,10 @@
 
     button{
         height: 50%;
-        width: 100%;
+        width: 90%;
+        font-weight: bold;
+        position: absolute;
+        bottom: 0.2vh;
     }
 
     .fa-eye-slash{
