@@ -2,6 +2,8 @@
     import { RouterLink } from 'vue-router';
     import { useRouter } from 'vue-router';
 
+    document.title = "Sign Up"
+
     const router = useRouter()
 
     let visible = false

@@ -1,5 +1,7 @@
 <script setup>
     import { RouterLink } from 'vue-router';
+
+    document.title = "Log In"
 </script>
 
 <template>
@@ -23,7 +25,7 @@
 
             <div class="box">
 
-                <RouterLink to="/">Forgot Password?</RouterLink>
+                <RouterLink to="/login/recover">Forgot Password?</RouterLink>
 
             </div>
 
