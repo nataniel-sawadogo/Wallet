@@ -18,5 +18,8 @@
                 <p>Profile</p>
             </div>
         </nav>
+        <div id="main-page">
+            
+        </div>
     </section>
 </template>
