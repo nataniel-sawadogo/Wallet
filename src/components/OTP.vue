@@ -1,25 +1,25 @@
 <script setup>
     import { ref } from 'vue';
 
-    let time = 60
-    resendClicked = false
-    let digits = Array(4).fill({value: ''})
-
+    let digits = Array(4).fill({value: ' '})
+    let countdown = 60
+    const otpInput = ref([])
+    console.log(otpInput);
+    
     const onInput = (index) => {
-        if (digits(index).value) {
-
-            if ( index < digits.length - 1 ) {
-
-                
-
+        console.log("hi");
+        if (digits[index].value) {
+            console.log("hi2");
+            if (index < digits.length - 1) {
+              otpInput[index + 1].focus();
             }
-
+        } else {
+        if (index > 0) {
+          otpInput[index - 1].focus();
         }
+      }
     }
-
-    const resendOTP = () => {
-        
-    }
+    
 </script>
 
 <template>
@@ -30,12 +30,12 @@
             <h1>Kindly enter your OTP to verify account</h1>
 
             <input 
-            type="text"
             v-for="(digit, index) in digits"
-            v-model="digits[index]"
             :key="index"
+            @input="onInput(index)"
             maxlength="1"
             :placeholder="index+1"
+            :ref="otpInput"
             >
 
             <p>Didn't get the code? <span><a href="#">Resend</a></span></p>

@@ -21,8 +21,8 @@
         console.log(type, visible);
     }
 
-    const goToHome = () => {
-        router.push('/')
+    const next = () => {
+        router.push('/login/otp')
     }
 </script>
 
@@ -70,7 +70,7 @@
 
             <div class="box">
             
-                <button @click="goToHome()">Create Account</button>
+                <button @click="next()">Create Account</button>
             
             </div>
 
