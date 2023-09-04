@@ -1,9 +1,12 @@
 <script setup>
     import data from "../data/data.json"
+    import { computed , ref , watch } from "vue";
     let f = data.transactions.length
     let pages = f + 1
-    let pageNumber
-    let currentPage = 1
+    let pageNumber = ref()
+    let currentPage = ref(1)
+    let showPrevious = false
+    let showNext = true
     console.log(f);
     
     if (pages > 8){
@@ -16,11 +19,34 @@
         if(number < pageNumber){
             return data.transactions.slice(((number - 1) * 8), (number * 8))
         }else{
-            return data.transactions.slice(((number - 1) * 8), f) 
+            return data.transactions.slice(((number.value - 1) * 8), f) 
         }
     }
 
-    let display = pagination(currentPage)
+    let display = pagination(1)
+    watch(currentPage, () => {
+        if(currentPage.value <= 1){
+            showPrevious = false
+            console.log(1);
+        }else{
+            showPrevious = true
+            console.log(2);
+        }
+        if(currentPage.value >= pageNumber){
+            showNext = false
+            console.log(3);
+        }else{
+            showNext = true
+            console.log(4);
+            console.log(currentPage.value,pageNumber);
+        }
+        display = pagination(currentPage)
+        console.log(display);
+        console.log(showPrevious, showNext);
+        return display
+    })
+
+    
 </script>
 
 <template>
@@ -50,14 +76,30 @@
         </div>
 
         <div class="transaction" v-for="i in display.length" :key="i.id">
-            <p>Wallet {{ data.transactions[i - 1].type }}</p>
-            <p>{{ data.transactions[i - 1].date }} | <span class="time">{{ data.transactions[i - 1].time }}</span></p>
-            <p class="before-last"><span :class="data.transactions[i - 1].status">• {{ data.transactions[i - 1].status }}</span></p>
-            <p class="last">{{ data.transactions[i - 1].currency }} {{ data.transactions[i - 1].amount }}</p>
+            <p>Wallet {{ display[i - 1].type }}</p>
+            <p>{{ display[i - 1].date }} | <span class="time">{{ display[i - 1].time }}</span></p>
+            <p class="before-last"><span :class="display[i - 1].status">• {{ display[i - 1].status }}</span></p>
+            <p class="last">{{ display[i - 1].currency }} {{ display[i - 1].amount }}</p>
         </div>
 
         <div id="foot">
+
             <p>Showing Page {{ currentPage }} of {{ pageNumber }}</p>
+            <p v-if="showPrevious" @click="currentPage --">Prev</p>
+            <p v-if="pageNumber > 3">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>...</span>
+                <span>{{ pageNumber }}</span>
+            </p>
+            <p v-if="pageNumber <= 3">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+            </p>
+            <p v-if="showNext" @click="currentPage++">Next</p>
+
         </div>
     </div>
     
