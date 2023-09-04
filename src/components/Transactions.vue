@@ -85,20 +85,24 @@
         <div id="foot">
 
             <p>Showing Page {{ currentPage }} of {{ pageNumber }}</p>
-            <p v-if="showPrevious" @click="currentPage --">Prev</p>
-            <p v-if="pageNumber > 3">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>...</span>
-                <span>{{ pageNumber }}</span>
-            </p>
-            <p v-if="pageNumber <= 3">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-            </p>
-            <p v-if="showNext" @click="currentPage++">Next</p>
+            <div id="end">
+                <p @click="currentPage --" :class="{ hidden : !showPrevious }">Prev</p>
+                <p v-if="pageNumber > 3">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>...</span>
+                    <span>{{ pageNumber }}</span>
+                </p>
+                <p v-if="pageNumber <= 3">
+                    <span v-for="page in pageNumber"
+                    :key="page"
+                    :class="{ active1: page == currentPage }"
+                    @click="currentPage = page"
+                    >{{ page }}</span>
+                </p>
+                <p @click="currentPage++" :class="{ hidden : !showNext }">Next</p>
+            </div>
 
         </div>
     </div>
@@ -107,11 +111,12 @@
 
 <style scoped>
     #container{
-        height: 77%;
+        height: 75%;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
         /* border: red 1px solid; */
     }
     
@@ -178,7 +183,7 @@
         padding: 0 2vw;
         background: rgba(110, 108, 133, 0.197);
         border-radius: 0.3em;
-        height: 15%;
+        height: 3.3em;
         align-items: center;
     }
 
@@ -193,7 +198,7 @@
         justify-content: space-between;
         width: 95%;
         border-bottom: 1px solid rgba(0, 0, 0, 0.216);
-        height: 15%;
+        height: 3.3em;
         padding: 0 2vw;
         align-items: center;
     }
@@ -233,5 +238,45 @@
     .transaction:hover p{
         color: black;
         font-weight: bold;
+    }
+
+    #foot{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 10%;
+        position: absolute;
+        bottom: -10vh;
+        color: black;
+        padding: 0 2.5%;
+    }
+
+    #end{
+        display: flex;
+        width: 24%;
+        justify-content: space-between;
+    }
+
+    #end p{
+        display: flex;
+        width: 70%;
+        justify-content: space-around;
+    }
+
+    .active1{
+        background: rgba(144, 144, 236, 0.289);
+    }
+
+    #end span{
+        height: 1.8em;
+        width: 1.8em;
+        /* border: red 1px solid; */
+        text-align: center;
+        transition: 0.2s ease;
+        cursor: pointer;
+    }
+
+    .hidden{
+        opacity: 0;
     }
 </style>
