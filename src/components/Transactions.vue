@@ -261,6 +261,8 @@
         display: flex;
         width: 70%;
         justify-content: space-around;
+        cursor: pointer;
+        transition: ease 0.2s;
     }
 
     .active1{
@@ -274,6 +276,10 @@
         text-align: center;
         transition: 0.2s ease;
         cursor: pointer;
+    }
+
+    #end span:hover{
+        background: rgba(17, 17, 236, 0.289);
     }
 
     .hidden{
