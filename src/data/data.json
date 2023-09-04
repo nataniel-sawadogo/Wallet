@@ -1,0 +1,94 @@
+{
+    "balances": {
+        "id": "1",
+        "naira": 0.00,
+        "dollar": 0.00
+    },
+    "name": {
+        "first": "Kingsley",
+        "name": "Omin"
+    },
+    "transactions": [
+        {
+            "id": 1,
+            "type": "Deposit",
+            "date": "August 27, 2023",
+            "time": "12:38 PM",
+            "status": "Successful",
+            "currency": "$",
+            "amount": 60
+        },
+        {
+            "id": 2,
+            "type": "Transfer",
+            "date": "August 21, 2023",
+            "time": "5:31 PM",
+            "status": "Successful",
+            "currency": "₦",
+            "amount": 60000
+        },
+        {
+            "id": 3,
+            "type": "Transfer",
+            "date": "August 17, 2023",
+            "time": "4:48 PM",
+            "status": "Successful",
+            "currency": "$",
+            "amount": 100
+        },
+        {
+            "id": 4,
+            "type": "Deposit",
+            "date": "August 17, 2023",
+            "time": "12:01 AM",
+            "status": "Failed",
+            "currency": "$",
+            "amount": 150
+        },
+        {
+            "id": 5,
+            "type": "Transfer",
+            "date": "August 17, 2023",
+            "time": "9:35 PM",
+            "status": "Successful",
+            "currency": "$",
+            "amount": 100
+        },
+        {
+            "id": 6,
+            "type": "Transfer",
+            "date": "August 1, 2023",
+            "time": "10:39 PM",
+            "status": "Successful",
+            "currency": "$",
+            "amount": 600
+        },
+        {
+            "id": 7,
+            "type": "Deposit",
+            "date": "June 20, 2023",
+            "time": "12:00 AM",
+            "status": "Successful",
+            "currency": "$",
+            "amount": 700
+        },
+        {
+            "id": 8,
+            "type": "Transfer",
+            "date": "June 16, 2023",
+            "time": "7:58 PM",
+            "status": "Successful",
+            "currency": "₦",
+            "amount": 60000
+        },
+        {
+            "id": 9,
+            "type": "Deposit",
+            "date": "June 16, 2023",
+            "time": "11:32 PM",
+            "status": "Successful",
+            "currency": "₦",
+            "amount": 100000
+        }
+    ]
+}
