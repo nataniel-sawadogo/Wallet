@@ -3,15 +3,21 @@
     import Header from "../components/Header.vue";
     import HomePage from "../components/HomePage.vue";
     import Transactions from "../components/Transactions.vue";
+    import { ref , computed, watch } from "vue";
     document.title = "Wallet - Transactions"
-    let display = 2
+    let display = ref(1)
+
+    const changePage = (option) => {
+        display.value = option
+    }
+
 </script>
 
 <template>
     <section id="container">
 
         <div id="side-bar">
-            <Sidebar />
+            <Sidebar  @clicked="changePage"/>
         </div>
 
         <div id="main-page">
@@ -25,7 +31,7 @@
     </section>
 </template>
 
-<style script>
+<style>
     #container{
         height: 100vh;
         width: 100%;

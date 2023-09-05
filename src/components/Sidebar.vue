@@ -1,5 +1,25 @@
 <script setup>
+    import { defineEmits , ref , watch } from "vue"
+
+    const emit = defineEmits(['clicked'])
+    let links = {
+        classes: [
+            { value: ref('links active') },
+            { value: ref('links') },
+            { value: ref('links') }
+        ]
+    }
     
+    const emitClicked = (option) => {
+        emit('clicked', option)
+
+        for ( let i = 0; i < links.classes.length; i++ ) {
+            links.classes[i].value.value = 'links'
+        }
+
+        links.classes[ option - 1 ].value.value = 'links active'
+    }
+
 </script>
 
 <template>
@@ -8,13 +28,13 @@
             <h2>Wallet</h2>
         </div>
 
-        <div class="links active">
+        <div :class="links.classes[0].value.value" @click="emitClicked(1)">
             <p>Home</p>
         </div>
-        <div class="links">
+        <div :class="links.classes[1].value.value" @click="emitClicked(2)">
             <p>History</p>
         </div>
-        <div class="links">
+        <div :class="links.classes[2].value.value" @click="emitClicked(3)">
             <p>Profile</p>
         </div>
 
