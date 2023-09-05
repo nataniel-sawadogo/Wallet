@@ -6,6 +6,11 @@
   padding: 0;
 }
 
+:root{
+  --darkblue: rgb(1, 1, 61);
+  --background: rgba(184, 183, 213, 0.14);
+}
+
 button{
   background-color: blue;
   border-radius: 0.4em;

@@ -88,7 +88,7 @@
 <style scoped>
     #container{
         height: 100vh;
-        width: 100%;
+        width: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -133,14 +133,16 @@
     }
 
     form{
-        height: 70%;
-        width: 40%;
+        height: 65%;
+        width: 60%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        box-shadow: 0px 0px 7px rgba( 0, 0, 0, 0.2 );
+        /* box-shadow: 0px 0px 7px rgba( 0, 0, 0, 0.2 ); */
+        border: 1px solid rgba(172, 171, 171, 0.616);
         border-radius: 0.3em;
+        background: white;
     }
 
     button{

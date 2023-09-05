@@ -49,7 +49,7 @@
 <style scoped>
     #container {
         height: 100vh;
-        width: 100%;
+        width: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -60,11 +60,13 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        box-shadow: 0px 0px 7px rgba( 0, 0, 0, 0.2 );
+        /* box-shadow: 0px 0px 7px rgba( 0, 0, 0, 0.2 ); */
+        border: 1px solid rgba(172, 171, 171, 0.616);
         border-radius: 0.3em;
         height: 55%;
-        width: 40%;
+        width: 70%;
         padding-top: 2%;
+        background: white;
     }
 
     .box{
