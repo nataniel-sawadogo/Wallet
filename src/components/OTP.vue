@@ -74,7 +74,7 @@ export default {
     },
     goToHome(){
       if(this.otpDigits[3] != ''){
-        this.router.push('/')
+        this.router.push('/login/pin')
       }
     }
   },

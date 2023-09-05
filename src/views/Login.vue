@@ -4,6 +4,7 @@
     import Signin from '../components/Signin.vue';
     import RecoverPassword from '../components/RecoverPassword.vue';
     import OTP from '../components/OTP.vue';
+    import PIN from '../components/PIN.vue'
     import { computed } from 'vue';
 
     const route = useRoute()
@@ -48,6 +49,15 @@
             <p>A code has been sent to your email</p>
         </div>
         <OTP />
+    </div>
+
+    <div class="container" v-if="routeName === 'pin'">
+        <div class="description">
+            <img src="../assets/images/wallet-icon.svg" alt="">
+            <h1>Create Pin</h1>
+            <p>Create pin to enable transfer</p>
+        </div>
+        <PIN />
     </div>
 
 </template>

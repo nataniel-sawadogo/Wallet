@@ -1,7 +1,12 @@
 <script setup>
-    import { RouterLink } from 'vue-router';
+    import { RouterLink , useRouter} from 'vue-router';
 
     document.title = "Log In"
+    const router = useRouter()
+
+    const goToHome = () => {
+        router.push('/')
+    }
 </script>
 
 <template>
@@ -31,7 +36,7 @@
 
             <div class="box">
 
-                <button>Log in</button>
+                <button @click="goToHome()">Log in</button>
 
             </div>
 
