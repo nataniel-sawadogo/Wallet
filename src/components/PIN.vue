@@ -32,13 +32,12 @@
       return {
         otpDigits: ['', '', '', ''],
         countdown: 60,
-        resendClicked: false,
         countdownInterval: null,
       };
     },
     setup(){
       const router = useRouter()
-      document.title = 'Verify OTP'
+      document.title = 'Create your pin'
   
       return {
         router: router
@@ -58,18 +57,6 @@
       handleBackspace(index, event) {
         if (event.key === 'Backspace' && !this.otpDigits[index] && index > 0) {
           this.$refs.otpInput[index - 1].focus();
-        }
-      },
-      resendCode() {
-        if (!this.resendClicked) {
-          this.resendClicked = true;
-          this.countdownInterval = setInterval(() => {
-            if (this.countdown > 0) {
-              this.countdown--;
-            } else {
-              clearInterval(this.countdownInterval);
-            }
-          }, 1000);
         }
       },
       goToHome(){

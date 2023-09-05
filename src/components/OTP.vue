@@ -39,7 +39,6 @@ export default {
   setup(){
     const router = useRouter()
     document.title = 'Verify OTP'
-
     return {
       router: router
     }
