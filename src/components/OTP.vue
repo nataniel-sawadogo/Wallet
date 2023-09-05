@@ -10,7 +10,7 @@
         :key="index"
         v-model="otpDigits[index]"
         ref="otpInput"
-        @input="focusNextInput(index)"
+        @input="handleNonNumericInput(index); focusNextInput(index)"
         @keydown="handleBackspace(index, $event)"
         @keydown.enter="goToHome()"
         class="otp-digit"
@@ -49,6 +49,11 @@ export default {
       if (index < this.otpDigits.length - 1 && this.otpDigits[index]) {
         this.$refs.otpInput[index + 1].focus();
       }
+    },
+    handleNonNumericInput(index) {
+    if (isNaN(this.otpDigits[index])) {
+      this.otpDigits[index] = ''; // Clear the input if it's not a number
+    }
     },
     handleBackspace(index, event) {
       if (event.key === 'Backspace' && !this.otpDigits[index] && index > 0) {
