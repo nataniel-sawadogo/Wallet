@@ -1,8 +1,16 @@
 <script setup>
     import data from "../data/data.json"
+    import { defineEmits } from "vue";
+    const emit = defineEmits(['clickedButton'])
     let f = 5
     let nairaBalance = data.balances.naira.toFixed(2)
     let dollarBalance = data.balances.dollar.toFixed(2)
+
+    const emitClickedButton = (option) => {
+        emit('clickedButton', option)
+        console.log('click');
+    }
+
     if (nairaBalance < 10) {
         nairaBalance = `0${nairaBalance}`
     }
@@ -17,8 +25,8 @@
         <div class="head">
 
             <h1>Hello Kingsley 👋🏾</h1>
-            <button class="white-button">Transfer Funds</button>
-            <button>+ Fund Wallet</button>
+            <button class="white-button" @clicked="emitClickedButton('transfer')">Transfer Funds</button>
+            <button @clicked="emitClickedButton('fundWallet')">+ Fund Wallet</button>
 
         </div>
 

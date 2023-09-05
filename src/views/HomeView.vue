@@ -3,12 +3,37 @@
     import Header from "../components/Header.vue";
     import HomePage from "../components/HomePage.vue";
     import Transactions from "../components/Transactions.vue";
+    import Transaction from "../components/Transaction.vue";
     import { ref , computed, watch } from "vue";
     document.title = "Wallet - Transactions"
     let display = ref(1)
+    let transfer = {
+        name: "Transfer",
+        text: "Select Wallet Type to Transfer From",
+        showAccountNumber: true,
+        showAmount: true,
+        showPin: true
+    }
+
+    let fundWallet = {
+        name: "Fund Wallet",
+        text: "Select Wallet Type",
+        showAccountNumber: false,
+        showAmount: true,
+        showPin: false
+    }
+
+    let type = fundWallet
+    let showTransaction = ref(false)
 
     const changePage = (option) => {
         display.value = option
+    }
+
+    const transaction = (option) => {
+        type = option
+        showTransaction.value = true
+        console.log('ok');
     }
 
 </script>
@@ -23,8 +48,12 @@
         <div id="main-page">
 
             <Header />
-            <HomePage v-if="display==1"/>
+            <HomePage v-if="display==1" @clickedButton="transaction"/>
             <Transactions v-if="display==2"/>
+            <Transaction 
+            :type="type"
+            v-if="showTransaction"
+            />
 
         </div>
 
