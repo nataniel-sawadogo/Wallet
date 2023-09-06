@@ -1,17 +1,25 @@
 <script setup>
-    import { defineProps } from 'vue';
+    import { defineProps , ref } from 'vue';
 
-    const { type } = defineProps(['type'])
+    const emit = defineEmits(['close'])
+    const backdrop = ref(null)
+    const widget = ref(null)
+
+    const { type , showTransaction } = defineProps(['type', 'showTransaction'])
+
+    const emitClosed = (option) => {
+        emit( 'close' , option )
+    }
 </script>
 
 <template>
     <div id="container">
-        <div id="backdrop"></div>
-        <div id="inner-container">
+        <div id="backdrop" ref="backdrop"></div>
+        <div id="inner-container" ref="widget">
 
             <div id="header">
                 <p>{{ type.name }}</p>
-                <span>+</span>
+                <span @click="emitClosed(true)">+</span>
             </div>
 
             <div class="box">
@@ -105,6 +113,7 @@
     #header span{
         font-size: 2.2em;
         rotate: 45deg;
+        cursor: pointer;
     }
 
     #inputs{
@@ -148,5 +157,14 @@
         height: 50%;
         width: 100%;
         margin-top: 1em;
+    }
+
+    @keyframes slide{
+        0%{
+            transform: translateX(35vw);
+        }
+        100%{
+            transform: translateX(0);
+        }
     }
 </style>

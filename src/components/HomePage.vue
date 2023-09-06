@@ -25,9 +25,8 @@
         <div class="head">
 
             <h1>Hello Kingsley 👋🏾</h1>
-            <button class="white-button" @clicked="emitClickedButton('transfer')">Transfer Funds</button>
-            <button @clicked="emitClickedButton('fundWallet')">+ Fund Wallet</button>
-            butto
+            <button class="white-button" @click="emitClickedButton('transfer')">Transfer Funds</button>
+            <button @click="emitClickedButton('fundWallet')">+ Fund Wallet</button>
         </div>
 
         <div id="balance-container">

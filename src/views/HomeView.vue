@@ -31,9 +31,19 @@
     }
 
     const transaction = (option) => {
-        type = option
+        if ( option == 'transfer' ) {
+            type = transfer
+        } else {
+            type = fundWallet
+        }
         showTransaction.value = true
         console.log('ok');
+    }
+
+    const closeTransaction = (option) => {
+        if(option){
+            showTransaction.value = false
+        }
     }
 
 </script>
@@ -53,6 +63,8 @@
             <Transaction 
             :type="type"
             v-if="showTransaction"
+            @close="closeTransaction"
+            :show="showTransaction"
             />
 
         </div>
